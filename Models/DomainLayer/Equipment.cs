@@ -11,6 +11,7 @@ namespace JoshuaAllison_TermProject.Models
         //EF Core will configure the database to gerenate this value.
         public int EquipmentId { get; set; }
 
+        public string IconURL { get; set;}
         #region Categories
         public enum AttackTypes
         {
@@ -25,7 +26,6 @@ namespace JoshuaAllison_TermProject.Models
         [Required(ErrorMessage = "Please enter the Attack Type of the equipment.")]
         public AttackTypes AttackType { get; set; }
         #endregion Categories
-
         #region Attack Ratings
         [Required(ErrorMessage = "Please enter the Physical attack rating of the equipment.")]
         public int PhysicalAR { get; set; }
@@ -51,12 +51,16 @@ namespace JoshuaAllison_TermProject.Models
         public int DarkDR { get; set; }
         #endregion Defense Ratings
         #region Auxillary Effects
-        [Required(ErrorMessage = "Please enter the Auxillary Bleed effect of the equipment.")]
-        public int BleedAux { get; set; }
-        [Required(ErrorMessage = "Please enter the Auxillary Poison effect of the equipment.")]
-        public int PoisonAux { get; set; }
-        [Required(ErrorMessage = "Please enter the Auxillary Frost effect of the equipment.")]
-        public int FrostAux { get; set; }
+        public enum AuxTypes
+        {
+            Bleed,
+            Poison,
+            Frost
+        }
+        [Required(ErrorMessage = "Please enter the Auxillary Effect Type of the equipment.")]
+        public AuxTypes AuxType{ get; set; }
+        [Required(ErrorMessage = "Please enter the Auxillary Effect Value of the equipment.")]
+        public int AuxValue{ get; set; }
         #endregion Auxillary Effects
         #region Stat Scaling
         [Required(ErrorMessage = "Please enter the Strength scaling of the equipment.")]
@@ -80,9 +84,9 @@ namespace JoshuaAllison_TermProject.Models
         #endregion Scaling
         #region Other Stats
         [Required(ErrorMessage = "Please enter the Critcal rating of the equipment.")]
-        public int CritcalRating { get; set; }
+        public int Critical { get; set; }
         [Required(ErrorMessage = "Please enter the Weight of the equipment.")]
-        public float Weight { get; set; }
+        public double Weight { get; set; }
         [Required(ErrorMessage = "Please enter the Stability of the equipment.")]
         public int Stability { get; set; }
         [Required(ErrorMessage = "Please enter the Durability of the equipment.")]
@@ -90,6 +94,5 @@ namespace JoshuaAllison_TermProject.Models
         [Required(ErrorMessage = "Please enter the FP consumption of the equipment weapon art.")]
         public int FPConsumption { get; set; }
         #endregion Other Stats
-
     }
 }
