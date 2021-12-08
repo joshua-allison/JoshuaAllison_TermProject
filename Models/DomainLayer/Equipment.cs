@@ -8,11 +8,13 @@ namespace JoshuaAllison_TermProject.Models
 {
     public class Equipment
     {
+        #region Identifiers
         //EF Core will configure the database to gerenate this value.
         public int EquipmentId { get; set; }
 
-        public string IconURL { get; set;}
-        #region Categories
+        public string IconURL { get; set; }
+        public Subcategory subcategory { get; set; }
+        public WeaponArt weaponArt { get; set; }
         public enum AttackTypes
         {
             Slash,
@@ -25,7 +27,7 @@ namespace JoshuaAllison_TermProject.Models
         }
         [Required(ErrorMessage = "Please enter the Attack Type of the equipment.")]
         public AttackTypes AttackType { get; set; }
-        #endregion Categories
+        #endregion Identifiers
         #region Attack Ratings
         [Required(ErrorMessage = "Please enter the Physical attack rating of the equipment.")]
         public int PhysicalAR { get; set; }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace JoshuaAllison_TermProject.Controllers
 {
-    public class WeaponArtController : Controller
+    public class WeaponArtsController : Controller
     {
-        public IActionResult Index()
+        public IActionResult WeaponArts()
         {
             return View();
         }

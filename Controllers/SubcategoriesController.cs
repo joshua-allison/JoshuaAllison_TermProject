@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace JoshuaAllison_TermProject.Controllers
 {
-    public class ShieldController : Controller
+    public class SubcategoriesController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Subcategories()
         {
             return View();
         }
