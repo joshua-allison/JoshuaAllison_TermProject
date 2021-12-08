@@ -139,7 +139,7 @@ namespace JoshuaAllison_TermProject.Models
                 },
                 new WeaponArt
                 {
-                    WeaponArtId = 10,
+                    WeaponArtId = 11,
                     Name = "Spell Parry",
                     Description = "Repel an attack at the right time to follow up with a critical hit.  Works while equipped in either hand.  Also deflects spells."
                 }

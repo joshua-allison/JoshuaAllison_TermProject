@@ -11,9 +11,13 @@ namespace JoshuaAllison_TermProject.Models
         #region Identifiers
         //EF Core will configure the database to gerenate this value.
         public int EquipmentId { get; set; }
+        [Required(ErrorMessage = "Please enter the Name of the equipment.")]
         public string Name { get; set; }
+        [Required(ErrorMessage = "Please enter the Icon URL of the equipment.")]
         public string IconURL { get; set; }
+        [Required(ErrorMessage = "Please enter the Subcategory of the equipment.")]
         public Subcategory subcategory { get; set; }
+        [Required(ErrorMessage = "Please enter the Weapon Art of the equipment.")]
         public WeaponArt weaponArt { get; set; }
         public enum AttackTypes
         {
