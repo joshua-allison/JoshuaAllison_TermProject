@@ -11,7 +11,7 @@ namespace JoshuaAllison_TermProject.Models
         #region Identifiers
         //EF Core will configure the database to gerenate this value.
         public int EquipmentId { get; set; }
-
+        public string Name { get; set; }
         public string IconURL { get; set; }
         public Subcategory subcategory { get; set; }
         public WeaponArt weaponArt { get; set; }
