@@ -63,3 +63,5 @@ C:\Users\josha\source\repos\JoshuaAllison_TermProject\bin\Debug\netcoreapp3.1\ru
 C:\Users\josha\source\repos\JoshuaAllison_TermProject\obj\Debug\netcoreapp3.1\Razor\Views\Shields\Shields.cshtml.g.cs
 C:\Users\josha\source\repos\JoshuaAllison_TermProject\obj\Debug\netcoreapp3.1\Razor\Views\Subcategories\Subcategories.cshtml.g.cs
 C:\Users\josha\source\repos\JoshuaAllison_TermProject\obj\Debug\netcoreapp3.1\Razor\Views\Weapon Arts\WeaponArts.cshtml.g.cs
+C:\Users\josha\source\repos\JoshuaAllison_TermProject\obj\Debug\netcoreapp3.1\Razor\Views\Equipment\Delete.cshtml.g.cs
+C:\Users\josha\source\repos\JoshuaAllison_TermProject\obj\Debug\netcoreapp3.1\Razor\Views\Equipment\Edit.cshtml.g.cs

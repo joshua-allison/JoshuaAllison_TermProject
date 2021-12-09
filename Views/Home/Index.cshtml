@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<Equipment>
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -7,3 +8,34 @@
     <p>An editable collection of items from the dark souls 3 video game, each with a breakdown of stats.</p>
     <p>This is a condensed version of information found on the <a href="https://darksouls3.wiki.fextralife.com/Dark+Souls+3+Wiki" target="_blank">Dark Souls 3 Wiki.</a></p>
 </div>
+
+<a asp-controller="Equipment" asp-action="Add">Add New Equipment</a>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Icon</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Subcategory</th>
+            <th>Weapon Art</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td><img src=@item.IconURL/></td>
+            <td>@item.Name</td>
+            <td>@item.subcategory.Category</td>
+            <td>@item.subcategory.SubcategoryName</td>
+            <td>@item.</td>
+            <td>@item.weaponArt.Name</td>
+            <td>
+                <a asp-controller="Equipment" asp-action="Edit" asp-route-id="@item.EquipmentId">Edit</a>
+                <a asp-controller="Equipment" asp-action="Delete" asp-route-id="@item.EquipmentId">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
