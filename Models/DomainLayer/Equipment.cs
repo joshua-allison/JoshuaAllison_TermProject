@@ -30,7 +30,7 @@ namespace JoshuaAllison_TermProject.Models
         public string AuxillaryEffectId { get; set; }
         public AuxillaryEffect AuxEffect { get; set; }
         public int AuxEffectValue { get; set; }
-        public string Slug => ItemSubcategory.Name?.Replace(' ', '-').ToLower() + '/' + Name?.Replace(' ', '-').ToLower() + '/';
+        public string Slug => Name?.Replace(' ', '-').ToLower() + '/';
         #endregion Identifiers
         #region Attack Ratings
         [Required(ErrorMessage = "Please enter the Physical attack rating of the equipment.")]

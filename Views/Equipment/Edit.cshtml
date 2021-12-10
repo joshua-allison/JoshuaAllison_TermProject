@@ -1,0 +1,99 @@
+﻿@model Equipment
+@{
+    string title = ViewBag.Action + " Equipment";
+    ViewBag.Title = title;
+}
+
+<h2>@ViewBag.Title</h2>
+<div class="container">
+    <!--The form for item editing/adding-->
+    <form asp-action="Edit" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <input type="hidden" asp-for="EquipmentId" />
+
+        <!--Identifier Row-->
+        <div class="row">
+            <div class="form-group">
+                <label asp-for="Name">Name</label>
+                <input asp-for="Name" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label asp-for="IconURL">IconURL</label>
+                <input asp-for="IconURL" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label asp-for="AuxEffect">Auxillary Effect</label>
+                <select asp-for="AuxillaryEffectId" class="form-control">
+                    <option value="">Select an auxillary effect:</option>
+                    @foreach (AuxillaryEffect a in ViewBag.AuxillaryEffects)
+                    {
+                        <option value="@a.AuxillaryEffectId">@a.Name</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ItemSubcategoryId">Item Category</label>
+                <select asp-for="ItemSubcategoryId" class="form-control">
+                    <option value="">Select an equipment category:</option>
+                    @foreach (ItemSubcategory s in ViewBag.ItemSubcategories)
+                    {
+                        <option value="@s.ItemSubcategoryId">@s.Name</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <!--1st Attribute Row-->
+        <div class="row">
+            <div class="form-group">
+                <label asp-for="WeaponArtId"><img title="Weapon Art" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/skill-icon.jpg" /></label>
+                <select asp-for="WeaponArtId" class="form-control">
+                    <option value="">Select a weapon art:</option>
+                    @foreach (WeaponArt w in ViewBag.WeaponArts)
+                    {
+                        <option value="@w.WeaponArtId">@w.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="FPConsumption"><img title="FP COnsumption" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon_fp_cost.png" /></label>
+                    <input asp-for="FPConsumption" class="form-control">
+                </div>
+            </div>
+        </div>
+
+
+        <!--2nd Attribute Row-->
+        <div class="row">
+            <div class="form-group">
+                <label asp-for="PhysicalAR"><img title="Physical Attack" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon-wp_physicalAttack.png" /></label>
+                <input asp-for="PhysicalAR" class="form-control">
+            </div>
+        </div>
+
+
+        <!--3rd Attribute Row-->
+        <div class="row">
+            <div class="form-group">
+                <label asp-for="PhysicalAR"><img title="Physical Attack" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon-wp_physicalAttack.png" /></label>
+                <input asp-for="PhysicalAR" class="form-control">
+            </div>
+            <div class="form-group">
+                <label asp-for="MagicAR"><img title="Magic Attack" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon-wp_physicalAttack.png" /></label>
+                <input asp-for="MagicAR" class="form-control">
+            </div>
+        </div>
+
+
+
+            <!--Submit or Cancel-->
+            <button type="submit" class="btn btn-primary">@ViewBag.Action</button>
+            <a asp-controller="Home" asp-action="Index"
+                   class="btn btn-primary">Cancel</a>
+</form>
+</div>
