@@ -17,9 +17,6 @@ namespace JoshuaAllison_TermProject.Models
         public string IconURL { get; set; }
         [Required(ErrorMessage = "Please enter the Flavor Text of the equipment.")]
         public string FlavorText { get; set; }
-        [Required(ErrorMessage = "Please enter the Category of the equipment.")]
-        public string ItemCategoryId { get; set; }
-        public ItemSubcategory ItemCategory { get; set; }
         [Required(ErrorMessage = "Please enter the Subcategory of the equipment.")]
         public string ItemSubcategoryId { get; set; }
         public ItemSubcategory ItemSubcategory { get; set; }
@@ -33,7 +30,7 @@ namespace JoshuaAllison_TermProject.Models
         public string AuxillaryEffectId { get; set; }
         public AuxillaryEffect AuxEffect { get; set; }
         public int AuxEffectValue { get; set; }
-        public string Slug => ItemCategory.Name?.Replace(' ', '-').ToLower() + '/' + ItemSubcategory.Name?.Replace(' ', '-').ToLower() + '/' + Name?.Replace(' ', '-').ToLower() + '/';
+        public string Slug => ItemSubcategory.Name?.Replace(' ', '-').ToLower() + '/' + Name?.Replace(' ', '-').ToLower() + '/';
         #endregion Identifiers
         #region Attack Ratings
         [Required(ErrorMessage = "Please enter the Physical attack rating of the equipment.")]
