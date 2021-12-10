@@ -14,5 +14,6 @@ namespace JoshuaAllison_TermProject.Models
         public string Name { get; set; }
         [Required(ErrorMessage = "Please enter the Description of the Weapon Art.")]
         public string Description { get; set; }
+
     }
 }

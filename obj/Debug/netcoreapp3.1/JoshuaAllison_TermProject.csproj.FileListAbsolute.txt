@@ -8,7 +8,6 @@ C:\Users\josha\source\repos\JoshuaAllison_TermProject\bin\Debug\netcoreapp3.1\Jo
 C:\Users\josha\source\repos\JoshuaAllison_TermProject\bin\Debug\netcoreapp3.1\JoshuaAllison_TermProject.pdb
 C:\Users\josha\source\repos\JoshuaAllison_TermProject\bin\Debug\netcoreapp3.1\JoshuaAllison_TermProject.Views.dll
 C:\Users\josha\source\repos\JoshuaAllison_TermProject\bin\Debug\netcoreapp3.1\JoshuaAllison_TermProject.Views.pdb
-C:\Users\josha\source\repos\JoshuaAllison_TermProject\obj\Debug\netcoreapp3.1\JoshuaAllison_TermProject.csproj.AssemblyReference.cache
 C:\Users\josha\source\repos\JoshuaAllison_TermProject\obj\Debug\netcoreapp3.1\JoshuaAllison_TermProject.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\josha\source\repos\JoshuaAllison_TermProject\obj\Debug\netcoreapp3.1\JoshuaAllison_TermProject.AssemblyInfoInputs.cache
 C:\Users\josha\source\repos\JoshuaAllison_TermProject\obj\Debug\netcoreapp3.1\JoshuaAllison_TermProject.AssemblyInfo.cs
@@ -63,3 +62,4 @@ C:\Users\josha\source\repos\JoshuaAllison_TermProject\bin\Debug\netcoreapp3.1\ru
 C:\Users\josha\source\repos\JoshuaAllison_TermProject\obj\Debug\netcoreapp3.1\Razor\Views\Shields\Shields.cshtml.g.cs
 C:\Users\josha\source\repos\JoshuaAllison_TermProject\obj\Debug\netcoreapp3.1\Razor\Views\Subcategories\Subcategories.cshtml.g.cs
 C:\Users\josha\source\repos\JoshuaAllison_TermProject\obj\Debug\netcoreapp3.1\Razor\Views\Weapon Arts\WeaponArts.cshtml.g.cs
+C:\Users\josha\source\repos\JoshuaAllison_TermProject\obj\Debug\netcoreapp3.1\JoshuaAllison_TermProject.csproj.AssemblyReference.cache

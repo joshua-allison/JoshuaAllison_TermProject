@@ -5,8 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20211208224642_Initial.cs" />
-    <Compile Remove="Migrations\20211208224642_Initial.Designer.cs" />
+    <Compile Remove="Migrations\**" />
+    <Content Remove="Migrations\**" />
+    <EmbeddedResource Remove="Migrations\**" />
+    <None Remove="Migrations\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Migrations\20211210193235_Initial.cs" />
+    <Compile Include="Migrations\20211210193235_Initial.Designer.cs" />
+    <Compile Include="Migrations\DS3ItemContextModelSnapshot.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,10 +24,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="xunit" Version="2.4.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

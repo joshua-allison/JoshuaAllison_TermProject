@@ -15,22 +15,25 @@ namespace JoshuaAllison_TermProject.Models
         public string Name { get; set; }
         [Required(ErrorMessage = "Please enter the Icon URL of the equipment.")]
         public string IconURL { get; set; }
+        [Required(ErrorMessage = "Please enter the Flavor Text of the equipment.")]
+        public string FlavorText { get; set; }
+        [Required(ErrorMessage = "Please enter the Category of the equipment.")]
+        public string ItemCategoryId { get; set; }
+        public ItemSubcategory ItemCategory { get; set; }
         [Required(ErrorMessage = "Please enter the Subcategory of the equipment.")]
-        public Subcategory subcategory { get; set; }
+        public string ItemSubcategoryId { get; set; }
+        public ItemSubcategory ItemSubcategory { get; set; }
         [Required(ErrorMessage = "Please enter the Weapon Art of the equipment.")]
+        public int WeaponArtId { get; set; }
         public WeaponArt weaponArt { get; set; }
-        public enum AttackTypes
-        {
-            Slash,
-            Thrust,
-            Strike,
-            Standard,
-            SlashThrust,
-            StrikeThrust,
-            SlashStrike
-        }
+        [Required(ErrorMessage = "Please enter the FP consumption of the equipment weapon art.")]
+        public int FPConsumption { get; set; }
         [Required(ErrorMessage = "Please enter the Attack Type of the equipment.")]
-        public AttackTypes AttackType { get; set; }
+        public string AttackType { get; set; }
+        public string AuxillaryEffectId { get; set; }
+        public AuxillaryEffect AuxEffect { get; set; }
+        public int AuxEffectValue { get; set; }
+        public string Slug => ItemCategory.Name?.Replace(' ', '-').ToLower() + '/' + ItemSubcategory.Name?.Replace(' ', '-').ToLower() + '/' + Name?.Replace(' ', '-').ToLower() + '/';
         #endregion Identifiers
         #region Attack Ratings
         [Required(ErrorMessage = "Please enter the Physical attack rating of the equipment.")]
@@ -56,18 +59,6 @@ namespace JoshuaAllison_TermProject.Models
         [Required(ErrorMessage = "Please enter the Dark attack defense of the equipment.")]
         public int DarkDR { get; set; }
         #endregion Defense Ratings
-        #region Auxillary Effects
-        public enum AuxTypes
-        {
-            Bleed,
-            Poison,
-            Frost
-        }
-        [Required(ErrorMessage = "Please enter the Auxillary Effect Type of the equipment.")]
-        public AuxTypes AuxType{ get; set; }
-        [Required(ErrorMessage = "Please enter the Auxillary Effect Value of the equipment.")]
-        public int AuxValue{ get; set; }
-        #endregion Auxillary Effects
         #region Stat Scaling
         [Required(ErrorMessage = "Please enter the Strength scaling of the equipment.")]
         public char StrengthScaling { get; set; }
@@ -97,8 +88,6 @@ namespace JoshuaAllison_TermProject.Models
         public int Stability { get; set; }
         [Required(ErrorMessage = "Please enter the Durability of the equipment.")]
         public int Durability { get; set; }
-        [Required(ErrorMessage = "Please enter the FP consumption of the equipment weapon art.")]
-        public int FPConsumption { get; set; }
         #endregion Other Stats
     }
 }
