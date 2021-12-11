@@ -8,6 +8,10 @@ namespace JoshuaAllison_TermProject.Models
 {
     public class DS3ItemContext : DbContext
     {
+        public DS3ItemContext()
+        {
+        }
+
         public DS3ItemContext(DbContextOptions<DS3ItemContext> options) : base(options) { }
         public DbSet<ItemCategory> ItemCategories { get; set; }
         public DbSet<ItemSubcategory> ItemSubcategories { get; set; }

@@ -345,7 +345,12 @@
         </div>
 
         <!--Submit or Cancel-->
-        <button type="submit" class="btn btn-primary">@ViewBag.Action</button>
-        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-primary">Cancel</a>
+        @{
+            if (ViewBag.Action == "Edit")
+                {<button type="submit" class="btn btn-success"><i class="fa fa-edit"></i> Submit Edits</button>}
+            else
+                {<button type="submit" class="btn btn-success"><i class="fa fa-plus"></i> Add Equipment to Database</button>}
+            }
+        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-primary"><i class="fa fa-home"></i> Cancel</a>
     </form>
 </div>

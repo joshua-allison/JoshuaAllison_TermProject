@@ -1,112 +1,39 @@
-﻿@model List<Equipment>
+﻿@model IEnumerable<JoshuaAllison_TermProject.Models.Equipment>
 @{
     ViewData["Title"] = "Home Page";
 }
-
 <div class="text-center">
     <h1 class="display-4">Dark Souls III - Item Database</h1>
     <p>An editable collection of items from the dark souls 3 video game, each with a breakdown of stats.</p>
     <p>This is a condensed (and incomplete) version of information found on the <a href="https://darksouls3.wiki.fextralife.com/Dark+Souls+3+Wiki" target="_blank">Dark Souls 3 Wiki.</a></p>
 </div>
 
-<h2>Equipment List</h2>
-
-<h4 class="text-right"><a class="btn btn-success" asp-controller="Equipment" asp-action="Add">Add New Equipment</a></h4>
-    <table class="table table-bordered table-striped justify-content-center align-content-center">
-        <tbody>
-            @foreach (var equipment in Model)
-            {
+@using(Html.BeginForm("Index", "Home", FormMethod.Get))
+{
+    @Html.TextBox("searching")<input type="submit" value="Search" />
+}
+<table>
+    <thead>
+        <tr>
+            <th>Icon</th>
+            <th>Name</th>
+            <th>Flavor Text</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count() == 0) {
             <tr>
-                <td class="text-center font-weight-bold">
-                    <h3> @equipment.Name<br /></h3>
-                    <p class="font-weight-normal"></p>
-                    <img src=@equipment.IconURL class="mb-3">
-                    <p class="font-weight-normal font-italic">"@equipment.FlavorText"<br></p>
-                    <a class="btn btn-outline-primary align-content-start mr-3" asp-controller="Equipment" asp-action="Edit" asp-route-id="@equipment.EquipmentId" asp-route-slug="@equipment.Slug">Edit</a>
-                    <a class="btn btn-outline-success align-content-center ml-3 mr-3" asp-controller="Equipment" asp-action="Details" asp-route-id="@equipment.EquipmentId" asp-route-slug="@equipment.Slug">Details</a>
-                    <a class="btn btn-outline-danger align-content-end ml-3" asp-controller="Equipment" asp-action="Delete" asp-route-id="@equipment.EquipmentId" asp-route-slug="@equipment.Slug">Delete</a>
-                </td>
-                <td>
-                    <div class="container">
-                        <table class="row justify-content-center">
-                            <tr>
-                                <th class="align-content-center"><img title="Weapon Type" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/weapon_type-icon.jpg" /></th>
-                                <th><img title="Damage Type" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/damage_type-icon.jpg" /></th>
-                                <th><img title="Critical" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon-wp_critical.png" /></th>
-                                <th><img title=@equipment.AuxEffect.Name src=@equipment.AuxEffect.IconURL></th>
-                                <th><img title="Weight" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon_weight.png" /></th>
-                                <th><img title="Weapon Art" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/skill-icon.jpg" /></th>
-                                <th><img title="FP Consumption" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon_fp_cost.png" /></th>
-                                <th><img title="Stability" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon-wp_stability.png" /></th>
-                                <th><img title="Durability" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon-durabilitiy.png" /></th>
-                            </tr>
-                            <tr>
-                                <td>@equipment.ItemSubcategory.Name</td>
-                                <td>@equipment.AttackType</td>
-                                <td>@equipment.Critical</td>
-                                <td>@equipment.AuxEffectValue</td>
-                                <td>@equipment.Weight</td>
-                                <td>@equipment.weaponArt.Name</td>
-                                <td>@equipment.FPConsumption</td>
-                                <td>@equipment.Stability</td>
-                                <td>@equipment.Durability</td>
-                            </tr>
-                        </table><br />
-                        <table class="row justify-content-end">
-                            <tr>
-                                <th><img title="Physical Attack" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon-wp_physicalAttack.png" /></th>
-                                <th><img title="Magic Attack" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon-magicbonus.png" /></th>
-                                <th><img title="Fire Attack" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon-firebonus.png" /></th>
-                                <th><img title="Lightning Attack" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon-lightningbonus.png" /></th>
-                                <th><img title="Dark Attack" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon-darkbonus.png" /></th>
-                                <th></th>
-                                <th><img title="Strength Scaling" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/STR.jpg" /></th>
-                                <th><img title="Dexterity Scaling" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/DEX.jpg" /></th>
-                                <th><img title="Intellect Scaling" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/INT.jpg" /></th>
-                                <th><img title="Faith Scaling" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/FTH.jpg" /></th>
-                            </tr>
-                            <tr>
-                                <td>@equipment.PhysicalAR</td>
-                                <td>@equipment.MagicAR</td>
-                                <td>@equipment.FireAR</td>
-                                <td>@equipment.LightningAR</td>
-                                <td>@equipment.DarkAR</td>
-                                <td></td>
-                                <td>@equipment.StrengthScaling</td>
-                                <td>@equipment.DexterityScaling</td>
-                                <td>@equipment.IntellectScaling</td>
-                                <td>@equipment.FaithScaling</td>
-                            </tr>
-                        </table><br />
-                        <table class="row justify-content-end">
-                            <tr>
-                                <th><img title="Physical Defense" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon-wp_physicaldef.png" /></th>
-                                <th><img title="Magical Defense" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon-wp_magicdef.png" /></th>
-                                <th><img title="Fire Defense" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon-wp_firedef.png" /></th>
-                                <th><img title="Lightning Defense" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon-wp_lightningdef.png" /></th>
-                                <th><img title="Dark Defense" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon-wp_darkdef.png" /></th>
-                                <th></th>
-                                <th><img title="Strength Requirement" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/STR.jpg" /></th>
-                                <th><img title="Dexterity Requirement" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/DEX.jpg" /></th>
-                                <th><img title="Intellect Requirement" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/INT.jpg" /></th>
-                                <th><img title="Faith Requirement" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/FTH.jpg" /></th>
-                            </tr>
-                            <tr>
-                                <td>@equipment.PhysicalDR</td>
-                                <td>@equipment.MagicDR</td>
-                                <td>@equipment.FireDR</td>
-                                <td>@equipment.LightningDR</td>
-                                <td>@equipment.DarkDR</td>
-                                <td></td>
-                                <td>@equipment.StrengthRequirement</td>
-                                <td>@equipment.DexterityRequirement</td>
-                                <td>@equipment.IntellectRequirement</td>
-                                <td>@equipment.FaithRequirement</td>
-                            </tr>
-                        </table>
-                    </div>
-                </td>
+                <td colspan="3" style="color:red">No matching equipment</td>
             </tr>
+        } else {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td><img src="@item.IconURL" /></td>
+                    <td>@item.Name</td>
+                    <td>@item.FlavorText</td>
+                </tr>
             }
-        </tbody>
-    </table>
+        }
+    </tbody>
+</table>

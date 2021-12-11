@@ -19,21 +19,15 @@ namespace JoshuaAllison_TermProject.Controllers
             _logger = logger;
         }
         */
-        private DS3ItemContext context { get; set; }
+        DS3ItemContext db = new DS3ItemContext();
 
-        public HomeController(DS3ItemContext ctx)
+        public IActionResult Index(string searching)
         {
-            context = ctx;
-        }
-
-        public IActionResult Index()
-        {
-            ViewBag.WeaponArts = context.WeaponArts.OrderBy(w => w.Name).ToList();
-            ViewBag.ItemCategories = context.ItemCategories.OrderBy(c => c.Name).ToList();
-            ViewBag.ItemSubcategories = context.ItemSubcategories.OrderBy(s => s.Name).ToList();
-            ViewBag.AuxillaryEffects = context.AuxillaryEffects.OrderBy(a => a.Name).ToList();
-            var equipments = context.Equipments.OrderBy(e => e.Name).ToList();
-            return View(equipments);
+            return View(db.Equipments.Where(e =>
+                e.Name.Contains(searching) ||
+                e.FlavorText.Contains(searching) ||
+                e.ItemSubcategory.Name.Contains(searching) ||
+                searching == null).ToList());
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

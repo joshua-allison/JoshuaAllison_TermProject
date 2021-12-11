@@ -62,3 +62,6 @@ C:\Users\josha\source\repos\JoshuaAllison_TermProject\obj\Debug\netcoreapp3.1\Jo
 C:\Users\josha\source\repos\JoshuaAllison_TermProject\obj\Debug\netcoreapp3.1\Razor\Views\Equipment\Delete.cshtml.g.cs
 C:\Users\josha\source\repos\JoshuaAllison_TermProject\obj\Debug\netcoreapp3.1\Razor\Views\Equipment\Edit.cshtml.g.cs
 C:\Users\josha\source\repos\JoshuaAllison_TermProject\obj\Debug\netcoreapp3.1\Razor\Views\Equipment\Details.cshtml.g.cs
+C:\Users\josha\source\repos\JoshuaAllison_TermProject\obj\Debug\netcoreapp3.1\Razor\Views\Equipment\NotFound.cshtml.g.cs
+C:\Users\josha\source\repos\JoshuaAllison_TermProject\obj\Debug\netcoreapp3.1\Razor\Views\Equipment\SearchPage.cshtml.g.cs
+C:\Users\josha\source\repos\JoshuaAllison_TermProject\obj\Debug\netcoreapp3.1\Razor\Views\Equipment\List.cshtml.g.cs
