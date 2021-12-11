@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace JoshuaAllison_TermProject.Models
 {
@@ -46,12 +42,12 @@ namespace JoshuaAllison_TermProject.Models
                     ItemCategoryId = "R",
                     Name = "Rings",
                     Description = "Rings are an important category of equipment in Dark Souls 3. Players may equip up to 4 rings at once and they each grant specific benefits. This page has a list of all of the rings available in the game, separated by default and DLC rings. Click on each ring to find specific written location information. The list is by order that they will display in your inventory in game. This is to facilitate their acquisition by making it easy to see which you are missing with your inventory screen open."
-                    +"\nA returning feature from Dark Souls 2, rings are available in more powerful iterations that appear with the + 1, +2 or + 3 suffixes.These enhanced rings are only found in NG + and beyond.Their locations and which Journey(New Game) they can be found in will be noted here and on the individual ring pages.To obtain the Trophy / Achievement fo rcollecting every ring, you must collect all of the different + X variations available, making a total of 107 rings.Do NOT sell any of the rings you've obtained."
-                    +"\nRings of any variation can be obtained upon each playthrough.If you miss a ring on your first playthrough, or even your second or third, you can still obtain on any following playthrough.Weather it's NG+2 or NG+20 all the rings stay where they originally are placed, they do not go away simply because you've continued playing.Meaning you can obtain the achievement on any playthrough.In addition to this information, you DO NOT need to have all the rings on you at once.Provided you have picked up the ring it counts.HOWEVER, you should always put your rings into your Item Box via the bonfire.This will allow you to keep track and KNOW for a fact what you have, I do not recommend sharing your rings amongst friends until you've gotten your achievement. "
-                    +"\nRing of Sacrifice DOES count towards achievement.(Got the achievement after picking up the first roS in NG++, after getting every other ring.)"
-                    +"\n116 Total Rings -9 DLC Rings(8 of which are + 3 & other is Chillbite Ring) -1(+3) Ring - 16(+2) Rings - 20(+1) Rings - 70(+0 / Regular) Rings - 107 Rings for Achievement"
-                    +"\nThe Trophy / Achievement may be glitched and despite having all 107 rings in your inventory it may not register.In this case drop 15 rings, then pick them up again, then drop a different 15 and pick them up.* Do this until it registers.DO NOT drop any more than 15 to be safe.The game only allows about 30 rings to be on the ground at any time and will delete any number more than that.It's recommended that you make a backup of your save before doing this. If you chose the Life Ring as your gift at the beginning of your playthrough, you will possibly need to drop it and then pick it back up or buy another from the Handmaiden after she receives the Dreamchaser's Ashes to fix the glitched achievement."
-                    +"\nAn additional way to get around the glitch is to move a large amount of rings into your storage box and then back.This way is much safer than dropping them on the ground. "
+                    + "\nA returning feature from Dark Souls 2, rings are available in more powerful iterations that appear with the + 1, +2 or + 3 suffixes.These enhanced rings are only found in NG + and beyond.Their locations and which Journey(New Game) they can be found in will be noted here and on the individual ring pages.To obtain the Trophy / Achievement fo rcollecting every ring, you must collect all of the different + X variations available, making a total of 107 rings.Do NOT sell any of the rings you've obtained."
+                    + "\nRings of any variation can be obtained upon each playthrough.If you miss a ring on your first playthrough, or even your second or third, you can still obtain on any following playthrough.Weather it's NG+2 or NG+20 all the rings stay where they originally are placed, they do not go away simply because you've continued playing.Meaning you can obtain the achievement on any playthrough.In addition to this information, you DO NOT need to have all the rings on you at once.Provided you have picked up the ring it counts.HOWEVER, you should always put your rings into your Item Box via the bonfire.This will allow you to keep track and KNOW for a fact what you have, I do not recommend sharing your rings amongst friends until you've gotten your achievement. "
+                    + "\nRing of Sacrifice DOES count towards achievement.(Got the achievement after picking up the first roS in NG++, after getting every other ring.)"
+                    + "\n116 Total Rings -9 DLC Rings(8 of which are + 3 & other is Chillbite Ring) -1(+3) Ring - 16(+2) Rings - 20(+1) Rings - 70(+0 / Regular) Rings - 107 Rings for Achievement"
+                    + "\nThe Trophy / Achievement may be glitched and despite having all 107 rings in your inventory it may not register.In this case drop 15 rings, then pick them up again, then drop a different 15 and pick them up.* Do this until it registers.DO NOT drop any more than 15 to be safe.The game only allows about 30 rings to be on the ground at any time and will delete any number more than that.It's recommended that you make a backup of your save before doing this. If you chose the Life Ring as your gift at the beginning of your playthrough, you will possibly need to drop it and then pick it back up or buy another from the Handmaiden after she receives the Dreamchaser's Ashes to fix the glitched achievement."
+                    + "\nAn additional way to get around the glitch is to move a large amount of rings into your storage box and then back.This way is much safer than dropping them on the ground. "
                 },
                 new ItemCategory
                 {
@@ -290,17 +286,17 @@ namespace JoshuaAllison_TermProject.Models
                     FireDR = 65,
                     LightningDR = 52,
                     DarkDR = 63,
-                    
+
                     StrengthScaling = 'D',
                     DexterityScaling = '-',
                     IntellectScaling = '-',
                     FaithScaling = '-',
-                    
+
                     StrengthRequirement = 40,
                     DexterityRequirement = 0,
                     IntellectRequirement = 0,
                     FaithRequirement = 0,
-                    
+
                     Critical = 100,
                     Weight = 18.5,
                     Stability = 80,

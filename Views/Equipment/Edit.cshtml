@@ -1,10 +1,14 @@
 ﻿@model Equipment
 @{
-    string title = ViewBag.Action + " Equipment";
-    ViewBag.Title = title;
+    if (ViewBag.Action == "Edit")
+    {
+        <h2>Edit @Model.Name</h2>
+    }
+    else
+    {
+        <h2>Add New Equipment</h2>
+    }
 }
-
-<h2>@ViewBag.Title</h2>
 <div class="container justify-content-center align-content-center">
     <!--The form for item editing/adding-->
     <form asp-action="Edit" method="post">

@@ -1,10 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
+﻿using JoshuaAllison_TermProject.Models;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
-using JoshuaAllison_TermProject.Models;
 
 namespace JoshuaAllison_TermProject.Controllers
 {
@@ -75,12 +72,19 @@ namespace JoshuaAllison_TermProject.Controllers
             if (ModelState.IsValid)
             {
                 if (equipment.EquipmentId == 0)
+                {
                     Context.Equipments.Add(equipment);
+                }
                 else
+                {
                     Context.Equipments.Update(equipment);
+                }
+
                 Context.SaveChanges();
                 return RedirectToAction("Index", "Home");
-            } else {
+            }
+            else
+            {
                 ViewBag.Action = (equipment.EquipmentId == 0) ? "Add" : "Edit";
                 Context.SaveChanges();
                 addDBListsToViewBag();

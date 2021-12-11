@@ -1,11 +1,7 @@
 ﻿using JoshuaAllison_TermProject.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace JoshuaAllison_TermProject.Controllers
 {
@@ -27,10 +23,15 @@ namespace JoshuaAllison_TermProject.Controllers
         }
         public IActionResult Index(string searching)
         {
+            ViewBag.ItemCategories = Context.ItemCategories.OrderBy(c => c.Name).ToList();
+            ViewBag.ItemSubcategories = Context.ItemSubcategories.OrderBy(s => s.Name).ToList();
             return View(Context.Equipments.Where(e =>
                 e.Name.Contains(searching) ||
                 e.FlavorText.Contains(searching) ||
                 e.ItemSubcategory.Name.Contains(searching) ||
+                e.ItemSubcategory.itemCategory.Name.Contains(searching) ||
+                e.weaponArt.Name.Contains(searching) ||
+                e.weaponArt.Description.Contains(searching) ||
                 searching == null).ToList());
         }
 

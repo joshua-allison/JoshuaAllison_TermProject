@@ -12,14 +12,14 @@
                     <p class="font-weight-normal"></p>
                     <img src=@equipment.IconURL class="mb-3">
                     <p class="font-weight-normal font-italic">"@equipment.FlavorText"<br></p>
-                    <a class="btn btn-outline-primary align-content-start mr-3" asp-controller="Equipment" asp-action="Edit" asp-route-id="@equipment.EquipmentId" asp-route-slug="@equipment.Slug">
-                        <i class="fa fa-edit"></i> Edit
+                    <a class="btn btn-primary align-content-start mr-3" asp-controller="Equipment" asp-action="Edit" asp-route-id="@equipment.EquipmentId" asp-route-slug="@equipment.Slug">
+                        <i class="fa fa-edit"></i>  Edit
                     </a>
-                    <a class="btn btn-outline-secondary align-content-center ml-3 mr-3" asp-controller="Equipment" asp-action="Details" asp-route-id="@equipment.EquipmentId" asp-route-slug="@equipment.Slug">
-                        <i class="fa fa-info"></i> Details
+                    <a class="btn btn-secondary align-content-center ml-3 mr-3" asp-controller="Equipment" asp-action="Details" asp-route-id="@equipment.EquipmentId" asp-route-slug="@equipment.Slug">
+                        <i class="fa fa-info-circle"></i>  Details
                     </a>
-                    <a class="btn btn-outline-danger align-content-end ml-3" asp-controller="Equipment" asp-action="Delete" asp-route-id="@equipment.EquipmentId" asp-route-slug="@equipment.Slug">
-                        <i class="fa fa-trash"></i> Delete
+                    <a class="btn btn-danger align-content-end ml-3" asp-controller="Equipment" asp-action="Delete" asp-route-id="@equipment.EquipmentId" asp-route-slug="@equipment.Slug">
+                        <i class="fa fa-trash"></i>  Delete
                     </a>
                 </td>
                 <td>
