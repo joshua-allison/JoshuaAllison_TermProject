@@ -4,12 +4,18 @@
 }
 
 <h2>Confirm Deletion</h2>
-<h3>@Model.Name</h3>
 
 <form asp-action="Delete" method="post">
-    <input type="hidden" asp-for="EquipmentId" />
-
-    <button type="submit" class="btn btn-primary">Delete</button>
-    <a asp-controller="Home" asp-action="Index"
-       class="btn btn-primary">Cancel</a>
+    <div class="justify-content-center">
+        <input type="hidden" asp-for="EquipmentId" />
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top p-2" src=@Model.IconURL alt="@Model.Name">
+            <div class="card-body">
+                <h5 class="card-title text-center">@Model.Name</h5>
+                <p class="card-text">@Model.FlavorText</p>
+                <button type="submit" class="btn btn-outline-danger m-3">Delete</button>
+                <a asp-controller="Home" asp-action="Index" class="btn btn-primary m-3">Cancel</a>
+            </div>
+        </div>
+    </div>
 </form>

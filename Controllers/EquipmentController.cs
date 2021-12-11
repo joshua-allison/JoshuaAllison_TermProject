@@ -15,8 +15,9 @@ namespace JoshuaAllison_TermProject.Controllers
         {
             context = ctx;
         }
-        public void addListsToViewBag()
+        public void addDBListsToViewBag()
         {
+            //Theres a lot of entities related to equipment that need to be added to the ViewBag, so it makes sense to just write a function that just loads them all up at once, so I don't have to keep writing it out.
             ViewBag.WeaponArts = context.WeaponArts.OrderBy(w => w.Name).ToList();
             ViewBag.ItemCategories = context.ItemCategories.OrderBy(c => c.Name).ToList();
             ViewBag.ItemSubcategories = context.ItemSubcategories.OrderBy(s => s.Name).ToList();
@@ -28,16 +29,27 @@ namespace JoshuaAllison_TermProject.Controllers
         public IActionResult Add()
         {
             ViewBag.Action = "Add";
-            addListsToViewBag();
+            addDBListsToViewBag();
             return View("Edit", new Equipment());
+        }
+
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
+            ViewBag.Action = "Details";
+            addDBListsToViewBag();
+            var equipment = context.Equipments.Find(id);
+            context.SaveChanges();
+            return View(equipment);
         }
 
         [HttpGet]
         public IActionResult Edit(int id)
         {
             ViewBag.Action = "Edit";
-            addListsToViewBag();
+            addDBListsToViewBag();
             var equipment = context.Equipments.Find(id);
+            context.SaveChanges();
             return View(equipment);
         }
 
@@ -52,11 +64,10 @@ namespace JoshuaAllison_TermProject.Controllers
                     context.Equipments.Update(equipment);
                 context.SaveChanges();
                 return RedirectToAction("Index", "Home");
-            }
-            else
-            {
+            } else {
                 ViewBag.Action = (equipment.EquipmentId == 0) ? "Add" : "Edit";
-                addListsToViewBag();
+                context.SaveChanges();
+                addDBListsToViewBag();
                 return View(equipment);
             }
         }

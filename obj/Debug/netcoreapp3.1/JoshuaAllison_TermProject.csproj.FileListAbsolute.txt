@@ -61,3 +61,4 @@ C:\Users\josha\source\repos\JoshuaAllison_TermProject\bin\Debug\netcoreapp3.1\ru
 C:\Users\josha\source\repos\JoshuaAllison_TermProject\obj\Debug\netcoreapp3.1\JoshuaAllison_TermProject.csproj.AssemblyReference.cache
 C:\Users\josha\source\repos\JoshuaAllison_TermProject\obj\Debug\netcoreapp3.1\Razor\Views\Equipment\Delete.cshtml.g.cs
 C:\Users\josha\source\repos\JoshuaAllison_TermProject\obj\Debug\netcoreapp3.1\Razor\Views\Equipment\Edit.cshtml.g.cs
+C:\Users\josha\source\repos\JoshuaAllison_TermProject\obj\Debug\netcoreapp3.1\Razor\Views\Equipment\Details.cshtml.g.cs
