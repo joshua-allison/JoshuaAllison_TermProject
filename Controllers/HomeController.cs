@@ -19,11 +19,15 @@ namespace JoshuaAllison_TermProject.Controllers
             _logger = logger;
         }
         */
-        DS3ItemContext db = new DS3ItemContext();
+        private DS3ItemContext Context { get; set; }
 
+        public HomeController(DS3ItemContext ctx)
+        {
+            Context = ctx;
+        }
         public IActionResult Index(string searching)
         {
-            return View(db.Equipments.Where(e =>
+            return View(Context.Equipments.Where(e =>
                 e.Name.Contains(searching) ||
                 e.FlavorText.Contains(searching) ||
                 e.ItemSubcategory.Name.Contains(searching) ||
