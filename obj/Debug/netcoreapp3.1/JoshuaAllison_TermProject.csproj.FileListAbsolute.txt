@@ -62,3 +62,4 @@ C:\Users\josha\source\repos\JoshuaAllison_TermProject\obj\Debug\netcoreapp3.1\Jo
 C:\Users\josha\source\repos\JoshuaAllison_TermProject\obj\Debug\netcoreapp3.1\JoshuaAllison_TermProject.dll
 C:\Users\josha\source\repos\JoshuaAllison_TermProject\obj\Debug\netcoreapp3.1\JoshuaAllison_TermProject.pdb
 C:\Users\josha\source\repos\JoshuaAllison_TermProject\obj\Debug\netcoreapp3.1\JoshuaAllison_TermProject.genruntimeconfig.cache
+C:\Users\josha\source\repos\JoshuaAllison_TermProject\obj\Debug\netcoreapp3.1\JoshuaAllison_TermProject.csproj.AssemblyReference.cache
