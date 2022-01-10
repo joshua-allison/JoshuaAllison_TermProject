@@ -64,12 +64,16 @@ namespace JoshuaAllison_TermProject.Models
         #endregion Stat Scaling
         #region Stat Requirements
         [Required(ErrorMessage = "Please enter the Strength requirement of the equipment.")]
+        [Range(0, 99, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public int StrengthRequirement { get; set; }
         [Required(ErrorMessage = "Please enter the Dexterity requirement of the equipment.")]
+        [Range(0, 99, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public int DexterityRequirement { get; set; }
         [Required(ErrorMessage = "Please enter the Intellect requirement of the equipment.")]
+        [Range(0, 99, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public int IntellectRequirement { get; set; }
         [Required(ErrorMessage = "Please enter the Faith requirement of the equipment.")]
+        [Range(0, 99, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public int FaithRequirement { get; set; }
         #endregion Scaling
         #region Other Stats
