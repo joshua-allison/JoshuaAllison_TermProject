@@ -42,14 +42,19 @@ namespace JoshuaAllison_TermProject.Models
         #endregion Attack Ratings
         #region Defense Ratings
         [Required(ErrorMessage = "Please enter the Physical defense rating of the equipment.")]
+        [Range(0, 999, ErrorMessage = "Value for Physical Defense must be between {1} and {2}.")]
         public int PhysicalDR { get; set; }
         [Required(ErrorMessage = "Please enter the Magic defense rating of the equipment.")]
+        [Range(0, 999, ErrorMessage = "Value for Magic Defense must be between {1} and {2}.")]
         public int MagicDR { get; set; }
         [Required(ErrorMessage = "Please enter the Fire attack defense of the equipment.")]
+        [Range(0, 999, ErrorMessage = "Value for Fire Defense must be between {1} and {2}.")]
         public int FireDR { get; set; }
         [Required(ErrorMessage = "Please enter the Lightning defense rating of the equipment.")]
+        [Range(0, 999, ErrorMessage = "Value for Lightning Defense must be between {1} and {2}.")]
         public int LightningDR { get; set; }
         [Required(ErrorMessage = "Please enter the Dark attack defense of the equipment.")]
+        [Range(0, 999, ErrorMessage = "Value for Dark Defense must be between {1} and {2}.")]
         public int DarkDR { get; set; }
         #endregion Defense Ratings
         #region Stat Scaling

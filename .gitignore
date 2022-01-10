@@ -457,3 +457,7 @@ $RECYCLE.BIN/
 .dll
 .pdb
 .suo
+obj/Debug/netcoreapp3.1/JoshuaAllison_TermProject.Views.dll
+*.pdb
+*.dll
+.vs/JoshuaAllison_TermProject/v16/.suo
