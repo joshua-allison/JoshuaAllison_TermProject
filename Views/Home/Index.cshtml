@@ -1,9 +1,54 @@
-﻿@{
+﻿@model IEnumerable<JoshuaAllison_TermProject.Models.Equipment>
+@{
     ViewData["Title"] = "Home Page";
 }
-
 <div class="text-center">
     <h1 class="display-4">Dark Souls III - Item Database</h1>
     <p>An editable collection of items from the dark souls 3 video game, each with a breakdown of stats.</p>
-    <p>This is a condensed version of information found on the <a href="https://darksouls3.wiki.fextralife.com/Dark+Souls+3+Wiki" target="_blank">Dark Souls 3 Wiki.</a></p>
+    <p>This is a condensed (and incomplete) version of information found on the <a href="https://darksouls3.wiki.fextralife.com/Dark+Souls+3+Wiki" target="_blank">Dark Souls 3 Wiki.</a></p>
 </div>
+
+@using(Html.BeginForm("Index", "Home", FormMethod.Get))
+{
+    <div class="row justify-content-center m-5">
+        <input id="searching" name="searching" type="text" />
+        <input class="btn btn-primary" type="submit" value="Search" />
+    </div>
+}
+<table class="table table-striped">
+    <tbody>
+        @if (Model.Count() == 0) {
+            <tr>
+                <td colspan="3" style="color:red">No matching equipment</td>
+            </tr>
+        } else {
+            foreach (var equipment in Model)
+            {
+                <tr class="row">
+                    <td class="font-weight-bold text-center col-4">
+                        <img class="m-2" src="@equipment.IconURL" />
+                        <br />
+                        <div class="row justify-content-center m-2">
+                            <a class="btn btn-primary align-content-start m-1" asp-controller="Equipment" asp-action="Edit" asp-route-id="@equipment.EquipmentId" asp-route-slug="@equipment.Slug">
+                                <i class="fa fa-edit"></i>  Edit
+                            </a>
+                            <a class="btn btn-secondary align-content-center m-1" asp-controller="Equipment" asp-action="Details" asp-route-id="@equipment.EquipmentId" asp-route-slug="@equipment.Slug">
+                                <i class="fa fa-info-circle"></i>  Details
+                            </a>
+                            <a class="btn btn-danger align-content-end m-1" asp-controller="Equipment" asp-action="Delete" asp-route-id="@equipment.EquipmentId" asp-route-slug="@equipment.Slug">
+                                <i class="fa fa-trash"></i>  Delete
+                            </a>
+                        </div>
+                        <br />
+                    </td>
+                    <td class="col-8">
+                        <h3>@equipment.Name</h3>
+                        <h4 class="text-secondary">@equipment.ItemSubcategory.Name</h4>
+                        <br />
+                        <blockquote class="font-italic">"@equipment.FlavorText"</blockquote>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

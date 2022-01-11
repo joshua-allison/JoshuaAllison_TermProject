@@ -1,0 +1,464 @@
+﻿@model Equipment
+@{
+    string title = Model.Name;
+    ViewBag.Title = title;
+}
+
+<form>
+    <!--Details Container-->
+    <div style="background-color:#898989; border-radius:25px;">
+        <!--Heading-->
+        <div class="row m-0 mt-2 pb-2" style="background-color: #1f1f1f;">
+
+            <!--Edit-->
+            <div class="col-4 p-2">
+                <a class="btn btn-primary float-right" asp-controller="Equipment" asp-action="Edit" asp-route-id="@Model.EquipmentId" asp-route-slug="@Model.Slug">
+                    <i class="fa fa-edit"></i>  Edit
+                </a>
+            </div>
+
+            <!--Heading Text-->
+            <div class="col-4 pt-2">
+                <div class="text-center row justify-content-center">
+                    <h2 style="color:#ffec7c;">@ViewBag.Title</h2>
+                </div>
+                <div class="text-center text-secondary row justify-content-center">
+                    <h4>@Model.ItemSubcategory.itemCategory.Name -  @Model.ItemSubcategory.Name</h4>
+                </div>
+            </div>
+
+            <!--Delete-->
+            <div class="col-4 p-2 float-right">
+                <a class="btn btn-danger" asp-controller="Equipment" asp-action="Delete" asp-route-id="@Model.EquipmentId" asp-route-slug="@Model.Slug">
+                    <i class="fa fa-trash"></i>  Delete
+                </a>
+            </div>
+
+            <!--Special Stats Row 1-->
+            <div class="text-center text-secondary row justify-content-center">
+
+                <!--Critcal-->
+                <div class="col-auto">
+                    <div class="form-group row m-1">
+                        <div class="input-group ">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Critical</div>
+                            </div>
+                            <input asp-for="Critical" class="form-control text-right" disabled>
+                            <div class="input-group-append">
+                                <div class="input-group-text"><img title="Critical" src="https://darksouls3.wiki.fextr alife.com/file/Dark-Souls-3/icon-wp_critical.png" /></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Aux Effect-->
+                <div class="col-auto">
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><img title="Auxillary Effect" src="@Model.AuxEffect.IconURL" /></div>
+                        </div>
+                        <input asp-for="AuxEffectValue" class="form-control text-center" disabled>
+                        <div class="input-group-append">
+                            <label class="input-group-text" asp-for="AuxEffect">@Model.AuxEffect.Name</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Weight-->
+                <div class="col-auto">
+                    <div class="form-group row m-1">
+                        <div class="input-group ">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Weight</div>
+                            </div>
+                            <input asp-for="Weight" class="form-control text-right" disabled>
+                            <div class="input-group-append">
+                                <div class="input-group-text"><img title="Weight" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon_weight.png" /></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--End Special Stats Row 1-->
+            </div>
+
+            <!--Special Stats Row 2-->
+            <div class="text-center text-secondary row justify-content-center">
+
+                <!--Stability-->
+                <div class="col-auto">
+                    <div class="form-group">
+                        <div class="input-group ">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Stability</div>
+                            </div>
+                            <input asp-for="Stability" class="form-control text-right" disabled>
+                            <div class="input-group-append">
+                                <div class="input-group-text"><img title="Stability" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon-wp_stability.png" /></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Durability-->
+                <div class="col-auto">
+                    <div class="form-group">
+                        <div class="input-group ">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Durability</div>
+                            </div>
+                            <input asp-for="Durability" class="form-control text-right" disabled>
+                            <div class="input-group-append">
+                                <div class="input-group-text"><img title="Durability" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon-durabilitiy.png" /></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Damage Type-->
+                <div class="form-group">
+                    <div class="input-group rounded">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Damage Type</div>
+                        </div>
+                        <input asp-for="AttackType" class="form-control text-center" disabled>
+                        <div class="input-group-append">
+                            <div class="input-group-text"><img title="Damage Type" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/damage_type-icon.jpg" /></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--End Special Stats Row 2-->
+            </div>
+
+            <!--End Heading-->
+        </div>
+
+        <!--Body-->
+        <div class="row">
+            <!--Left Side of the page-->
+            <div class="col-4 text-right align-content-end justify-content-end">
+
+                <!--Damage Attributes-->
+                <div class="container pb-4 m-2 mt-5 justify-content-center" style="background-color: #6e7782; border-radius: 25px;">
+                    <h4 class="text-center" style="color:white;">Damage</h4>
+
+                    <!--Physical Damage-->
+                    <div class="form-group row m-1">
+                        <div class="input-group ">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Physical</div>
+                            </div>
+                            <input asp-for="PhysicalAR" class="form-control text-right" disabled>
+                            <div class="input-group-append">
+                                <div class="input-group-text"><img title="Physical Damage" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon-wp_physicalAttack.png" /></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Magic Damage-->
+                    <div class="form-group row m-1">
+                        <div class="input-group ">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Magic</div>
+                            </div>
+                            <input asp-for="MagicAR" class="form-control text-right" disabled>
+                            <div class="input-group-append">
+                                <div class="input-group-text"><img title="Magic Damage" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon-magicbonus.png" /></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Fire Damage-->
+                    <div class="form-group row m-1">
+                        <div class="input-group ">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Fire</div>
+                            </div>
+                            <input asp-for="FireAR" class="form-control text-right" disabled>
+                            <div class="input-group-append">
+                                <div class="input-group-text"><img title="Fire Damage" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon-firebonus.png" /></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Lightning Damage-->
+                    <div class="form-group row m-1">
+                        <div class="input-group ">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Lightning</div>
+                            </div>
+                            <input asp-for="LightningAR" class="form-control text-right" disabled>
+                            <div class="input-group-append">
+                                <div class="input-group-text"><img title="Lightning Damage" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon-lightningbonus.png" /></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Dark Damage-->
+                    <div class="form-group row m-1">
+                        <div class="input-group ">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Dark</div>
+                            </div>
+                            <input asp-for="DarkAR" class="form-control text-right" disabled>
+                            <div class="input-group-append">
+                                <div class="input-group-text"><img title="Dark Damage" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon-darkbonus.png" /></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--End Damage Attributes-->
+                </div>
+
+                <!--Scaling Attributes-->
+                <div class="container pb-4 m-2 mt-5 justify-content-center" style="background-color: #6e7782; border-radius: 25px;">
+                    <h4 class="text-center" style="color:white;">Scaling</h4>
+
+                    <!--Strength Scaling-->
+                    <div class="form-group row m-1">
+                        <div class="input-group ">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Strength</div>
+                            </div>
+                            <input asp-for="StrengthScaling" class="form-control text-right" disabled>
+                            <div class="input-group-append">
+                                <div class="input-group-text"><img title="Strength Scaling" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/STR.jpg" /></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Dexterity Scaling-->
+                    <div class="form-group row m-1">
+                        <div class="input-group ">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Dexterity</div>
+                            </div>
+                            <input asp-for="DexterityScaling" class="form-control text-right" disabled>
+                            <div class="input-group-append">
+                                <div class="input-group-text"><img title="Dexterity Scaling" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/DEX.jpg" /></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Intellect Scaling-->
+                    <div class="form-group row m-1">
+                        <div class="input-group ">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Intellect</div>
+                            </div>
+                            <input asp-for="IntellectScaling" class="form-control text-right" disabled>
+                            <div class="input-group-append">
+                                <div class="input-group-text"><img title="Intellect Scaling" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/INT.jpg" /></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Faith Scaling-->
+                    <div class="form-group row m-1">
+                        <div class="input-group ">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Faith</div>
+                            </div>
+                            <input asp-for="FaithScaling" class="form-control text-right" disabled>
+                            <div class="input-group-append">
+                                <div class="input-group-text"><img title="Faith Scaling" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/FTH.jpg" /></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--End Scaling Attributes-->
+                </div>
+
+                <!--End Left Side of the page-->
+            </div>
+
+            <!--Middle of the page-->
+            <div class="col-4" style="background-color: #1f1f1f;">
+
+                <!--Equipment Image-->
+                <div class="rounded text-center align-content-center justify-content-center m-2" style="background-color:grey;">
+                    <div class="row"><img class="mx-auto d-block m-3" src="@Model.IconURL" /></div>
+                </div>
+
+                <!--Flavor Text-->
+                <div>
+                    <blockquote class="font-italic" style="color:#ffec7c">"@Model.FlavorText"</blockquote>
+                </div>
+
+
+                <!--Weapon Art-->
+                <div class="form-group row m-2 rounded">
+                    <div class="input-group ">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Weapon Art</div>
+                        </div>
+                        <input asp-for="weaponArt.Name" class="form-control text-center" disabled>
+                        <div class="input-group-append">
+                            <div class="input-group-text"><img title="Weapon Art" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/skill-icon.jpg" /></div>
+                        </div>
+                    </div>
+                    <!--Weapon Art & Description-->
+                    <div>
+                        <p class="mt-2" style="color:#ffec7c">@Model.weaponArt.Description</p>
+                    </div>
+                    <!--FP Consumption-->
+                    <div class="input-group m-2 rounded">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">FP Consumption</div>
+                        </div>
+                        <input asp-for="FPConsumption" class="form-control text-center" disabled>
+                        <div class="input-group-append">
+                            <div class="input-group-text"><img title="FP Consumption" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon_fp_cost.png" /></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--End Middle of the page-->
+            </div>
+
+            <!--Right side of the page-->
+            <div class="col-4 text-left">
+
+                <!--Defense Attributes-->
+                <div class="container pb-4 mt-5" style="background-color: #6e7782; border-radius: 25px;">
+                    <h4 class="text-center" style="color:white;">Defense</h4>
+
+                    <!--Physical Defense-->
+                    <div class="form-group row m-1">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><img title="Physical Defense" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon-wp_physicaldef.png" /></div>
+                            </div>
+                            <input asp-for="PhysicalDR" class="form-control text-left" disabled>
+                            <div class="input-group-append">
+                                <div class="input-group-text">Physical</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Magic Defense-->
+                    <div class="form-group row m-1">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><img title="Magic Defense" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon-wp_magicdef.png" /></div>
+                            </div>
+                            <input asp-for="MagicDR" class="form-control text-left" disabled>
+                            <div class="input-group-append">
+                                <div class="input-group-text">Magic</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Fire Defense-->
+                    <div class="form-group row m-1">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><img title="Fire Defense" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon-wp_firedef.png" /></div>
+                            </div>
+                            <input asp-for="FireDR" class="form-control text-left" disabled>
+                            <div class="input-group-append">
+                                <div class="input-group-text">Fire</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Lightning Defense-->
+                    <div class="form-group row m-1">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><img title="Lightning Defense" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon-wp_lightningdef.png" /></div>
+                            </div>
+                            <input asp-for="LightningDR" class="form-control text-left" disabled>
+                            <div class="input-group-append">
+                                <div class="input-group-text">Lightning</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Dark Defense-->
+                    <div class="form-group row m-1">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><img title="Dark Defense" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/icon-wp_darkdef.png" /></div>
+                            </div>
+                            <input asp-for="DarkDR" class="form-control text-left" disabled>
+                            <div class="input-group-append">
+                                <div class="input-group-text">Dark</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--End Defense Attributes-->
+                </div>
+
+                <!--Attribute Requirements-->
+                <div class="container pb-4 mt-5" style="background-color: #6e7782; border-radius: 25px;">
+                    <h4 class="text-center" style="color:white;">Requirements</h4>
+
+                    <!--Strength Requirement-->
+                    <div class="form-group row m-2">
+                        <div class="input-group ">
+                            <div class="input-group-append">
+                                <div class="input-group-text"><img title="Strength Requirement" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/STR.jpg" /></div>
+                            </div>
+                            <input asp-for="StrengthRequirement" class="form-control text-right" disabled>
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Strength</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Dexterity Requirement-->
+                    <div class="form-group row m-2">
+                        <div class="input-group ">
+                            <div class="input-group-append">
+                                <div class="input-group-text"><img title="Dexterity Requirement" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/DEX.jpg" /></div>
+                            </div>
+                            <input asp-for="DexterityRequirement" class="form-control text-right" disabled>
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Dexterity</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Strength Requirement-->
+                    <div class="form-group row m-2">
+                        <div class="input-group ">
+                            <div class="input-group-append">
+                                <div class="input-group-text"><img title="Strength Requirement" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/STR.jpg" /></div>
+                            </div>
+                            <input asp-for="StrengthRequirement" class="form-control text-right" disabled>
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Strength</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Strength Requirement-->
+                    <div class="form-group row m-2">
+                        <div class="input-group ">
+                            <div class="input-group-append">
+                                <div class="input-group-text"><img title="Strength Requirement" src="https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/STR.jpg" /></div>
+                            </div>
+                            <input asp-for="StrengthRequirement" class="form-control text-right" disabled>
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Strength</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--End Attribute Requirements-->
+                </div>
+
+                <!--End Right side of the page-->
+            </div>
+
+            <!--End Body-->
+        </div>
+
+    </div>
+</form>
+<br />
+<a asp-controller="Home" asp-action="Index" class="btn btn-primary align-content-center"><i class="fa fa-home"></i> Cancel</a>
